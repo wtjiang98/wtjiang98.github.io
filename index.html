@@ -1,597 +1,300 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="3Pi5gRNVZ_uFXQ1gBBx91DHgGFC32ASIPVvSeEiTqz8" />
+  <meta name="google-site-verification" content="3Pi5gRNVZ_uFXQ1gBBx91DHgGFC32ASIPVvSeEiTqz8">
   <title>Wentao Jiang | 姜文韬</title>
-  <link rel="icon" type="image/png" href="sjtu_icon.png">
-  <link rel="shortcut icon" href="image/favicon.ico" />
-  <link rel="bookmark" href="image/favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f7f8fb;
-      --card: #ffffff;
-      --text: #1c1f26;
-      --muted: #5c6070;
-      --line: #e5e8f0;
-      --primary: #1f7ae0;
-      --accent: #ff9c5f;
-      --shadow: 0 15px 45px rgba(21, 38, 82, 0.08);
-      --radius: 26px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Nunito', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: var(--primary);
-      text-decoration: none;
-      transition: opacity .2s ease;
-    }
-
-    a:hover {
-      opacity: .7;
-    }
-
-    .legacy-red {
-      color: #c62828;
-      font-weight: 600;
-    }
-
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 32px clamp(16px, 5vw, 48px) 80px;
-    }
-
-    header {
-      background: linear-gradient(135deg, #202637 0%, #0b1630 60%, #102c57 100%);
-      border-radius: var(--radius);
-      padding: 48px clamp(24px, 5vw, 60px);
-      color: #fff;
-      display: grid;
-      grid-template-columns: minmax(360px, 3fr) minmax(180px, 1.25fr);
-      gap: 40px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1), transparent 55%),
-                  radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.08), transparent 50%);
-      pointer-events: none;
-    }
-
-    .hero-text {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-title {
-      font-size: clamp(40px, 5vw, 56px);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
-
-    .hero-sub {
-      font-size: 20px;
-      color: rgba(255, 255, 255, 0.85);
-      margin-bottom: 20px;
-    }
-
-    .hero-desc {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 16px;
-      margin-bottom: 28px;
-    }
-
-    .hero-highlight {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      font-size: 15px;
-      margin-bottom: 20px;
-    }
-
-    .hero-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .hero-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-      font-size: 15px;
-      transition: transform .2s ease, background .2s ease;
-    }
-
-    .hero-links a:hover {
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.18);
-    }
-
-    .hero-photo {
-      position: relative;
-      z-index: 1;
-      justify-self: center;
-    }
-
-    .hero-photo img {
-      width: 220px;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 30px;
-      border: 6px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 30px 40px rgba(5, 5, 20, 0.45);
-    }
-
-    nav {
-      margin: 40px 0 24px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    nav a {
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: var(--card);
-      border: 1px solid var(--line);
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    section {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 36px clamp(24px, 4vw, 48px);
-      box-shadow: var(--shadow);
-      margin-bottom: 32px;
-    }
-
-    .section-title {
-      font-size: 28px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .section-subtitle {
-      color: var(--muted);
-      margin-bottom: 28px;
-    }
-
-    .news-grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .news-card {
-      display: flex;
-      gap: 18px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .news-card:last-child {
-      border-bottom: none;
-    }
-
-    .news-date {
-      font-weight: 600;
-      font-size: 14px;
-      color: var(--primary);
-      min-width: 88px;
-    }
-
-    .news-text {
-      color: var(--text);
-      font-size: 15px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    .info-card {
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: rgba(31, 122, 224, 0.03);
-    }
-
-    .info-card h3 {
-      font-size: 18px;
-      margin-bottom: 12px;
-    }
-
-    .info-card p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .publication-list {
-      display: grid;
-      gap: 20px;
-    }
-
-    .publication-card {
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 24px;
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 20px;
-      align-items: center;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .publication-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-
-    .pub-thumb {
-      width: 100%;
-      height: 120px;
-      border-radius: 18px;
-      overflow: hidden;
-      background: var(--bg);
-    }
-
-    .pub-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .pub-meta h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .pub-meta p {
-      margin-bottom: 6px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .pub-venue {
-      margin: 6px 0 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .pub-links {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .pub-links a {
-      font-size: 13px;
-      border: 1px solid var(--line);
-      padding: 6px 12px;
-      border-radius: 999px;
-    }
-
-    .venue-pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 11px;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      background: linear-gradient(135deg, rgba(31, 122, 224, 0.15), rgba(31, 122, 224, 0.3));
-      color: #0b3c91;
-      font-weight: 700;
-    }
-
-    .honors-list {
-      list-style: none;
-      display: grid;
-      gap: 16px;
-    }
-
-    .honors-list li {
-      padding-left: 18px;
-      border-left: 3px solid var(--primary);
-      color: var(--muted);
-    }
-
-    .footer {
-      text-align: center;
-      color: var(--muted);
-      margin-top: 48px;
-      font-size: 14px;
-    }
-
-    @media (max-width: 720px) {
-      .publication-card {
-        grid-template-columns: 1fr;
-      }
-      .pub-thumb {
-        height: 180px;
-      }
-      header {
-        text-align: center;
-        grid-template-columns: 1fr;
-      }
-      .hero-links {
-        justify-content: center;
-      }
-    }
-  </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div class="hero-text">
-        <div class="hero-title">Wentao Jiang <span style="font-family: 'Noto Sans SC', sans-serif; font-weight: 500;">姜文韬</span></div>
-        <div class="hero-sub">Algorithm Engineer · Alibaba Group</div>
-        <p class="hero-desc">
-		     I am an algorithm engineer working on image/video generation at Alimama, Alibaba Group, which I joined through the "Alibaba Star Program". I obtained my PhD degree (2019-2024) from the School of Computer Science and Engineering, Beihang University (BUAA), supervised by <a href="https://scholar.google.com/citations?user=-QtVtNEAAAAJ">Prof. Si Liu</a>. I used to visit SoC, NUS, supervised by <a href="https://www.comp.nus.edu.sg/~leegh/">Prof. Gim Hee Lee</a>. Before my PhD study, I was a master student at Beihang University (BUAA). I received my B.Eng. degree from Harbin Engineering University (HEU) in 2019.
-        </p>
-        <div class="hero-highlight"><span class="legacy-red">长期招聘视频/图像生成方向的实习生，有意请发邮件至winter.jwt AT alibaba-inc.com</span></div>
-        <div class="hero-links">
-          <a href="mailto:wtjiang98@gmail.com">📧 Email</a>
-          <a href="https://scholar.google.com/citations?hl=en&user=fUKzRuD8RjAC">📚 Scholar</a>
-          <a href="https://github.com/wtjiang98">💻 GitHub</a>
-        </div>
-      </div>
-      <div class="hero-photo">
-        <img src="images/wb_small.jpg" alt="Wentao Jiang portrait">
-      </div>
-    </header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#news">News</a>
-      <a href="#pubs">Publications</a>
-      <a href="#honors">Honors</a>
+  <header class="site-header">
+    <nav class="topbar" aria-label="Primary navigation">
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+      </div>
     </nav>
+  </header>
 
-    <section id="about">
-      <div class="section-title">About</div>
-      <p class="section-subtitle">Research focus on video and image generation, including pre-training, post-training and RLHF.</p>
-      <div class="grid-2">
-        <div class="info-card">
-          <h3>Experience</h3>
-          <p>Algorithm Expert, Alimama · Alibaba Group<br />PhD, Beihang University (Prof. Si Liu)<br />Visiting Researcher, NUS (Prof. Gim Hee Lee)
-            <br />Intern, Shanghai AI Laboratory & Sensetime Research
+  <main id="main">
+    <section id="about" class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">Wentao Jiang <span class="name-divider" aria-hidden="true">/</span> <span class="cn-name" lang="zh-CN">姜文韬</span></h1>
+        <p class="hero-role">Video Generation · Alibaba Group</p>
+        <div class="hero-summary">
+          <p>
+            I am a researcher at Alibaba Group, working on video generation. I contribute to building the HappyHorse
+            series of models, including pre-training and post-training. I joined Alibaba in 2024 through the Alibaba Star Program.
+          </p>
+          <p>
+            I received my PhD degree from the School of Computer Science and Engineering, Beihang University, supervised by
+            <a href="https://scholar.google.com/citations?user=-QtVtNEAAAAJ">Prof. Si Liu</a>. I was also a visiting
+            researcher at the School of Computing, National University of Singapore. Before my PhD study, I was a master
+            student at Beihang University. I received my B.Eng. degree from Harbin Engineering University in 2019.
           </p>
         </div>
-        <div class="info-card">
-          <h3>Keywords</h3>
-          <p>AIGC · Diffusion · Video Generation · Image Generation</p>
+        <div class="hero-actions" aria-label="Profile links">
+          <a class="button button-primary" href="mailto:wtjiang98@gmail.com">Email</a>
+          <a class="button" href="https://scholar.google.com/citations?hl=en&amp;user=fUKzRuD8RjAC">Google Scholar</a>
+          <a class="button" href="https://github.com/wtjiang98">GitHub</a>
         </div>
+        <p class="recruiting-note" lang="zh-CN">
+          长期招聘视频生成方向实习生，欢迎邮件联系 winter.jwt AT alibaba-inc.com
+        </p>
+      </div>
+
+      <aside class="profile-panel" aria-label="Portrait">
+        <img src="images/wb_small.jpg" alt="Portrait of Wentao Jiang">
+      </aside>
+    </section>
+
+    <section id="news" class="content-section">
+      <div class="section-heading">
+        <p class="section-kicker">News</p>
+        <h2>Recent updates.</h2>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <span class="timeline-date">2026</span>
+          <p><strong>IPRO</strong> was accepted to <strong>CVPR 2026</strong>.</p>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-date">2024.07</span>
+          <p>Joined Alibaba Group through the Alibaba Star Program, focusing on video generation systems.</p>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-date">2024.06</span>
+          <p>Received PhD degree from Beihang University; dissertation on "Controlled Image Synthesis and its Application".</p>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-date">2022.12</span>
+          <p>Visited the Department of Computer Science at National University of Singapore.</p>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-date">2022.08</span>
+          <p>One paper was accepted to ECCV 2022 with Prof. Si Liu and Dr. Sheng Jin.</p>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-date">2021.07</span>
+          <p>One paper was accepted to ICCV 2021 with Prof. Si Liu and Dr. Ning Xu.</p>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-date">2020.06</span>
+          <p>One paper was accepted to CVPR 2020 as an oral presentation.</p>
+        </article>
       </div>
     </section>
 
-    <section id="news">
-      <div class="section-title">Latest News</div>
-      <p class="section-subtitle">Milestones and updates.</p>
-      <div class="news-grid">
-        <div class="news-card">
-          <div class="news-date">2024.07</div>
-          <div class="news-text">Joined Alibaba Group, focusing on AIGC and creative generation systems.</div>
+    <section id="publications" class="content-section">
+      <div class="section-heading publications-heading">
+        <div>
+          <p class="section-kicker">Publications</p>
+          <h2>Selected publications.</h2>
         </div>
-        <div class="news-card">
-          <div class="news-date">2024.06</div>
-          <div class="news-text">Received PhD degree from Beihang University; dissertation on "Controlled Image Synthesis and its Application".</div>
-        </div>
-        <div class="news-card">
-          <div class="news-date">2022.12</div>
-          <div class="news-text">Visiting the Department of Computer Science at National University of Singapore (NUS).</div>
-        </div>
-        <div class="news-card">
-          <div class="news-date">2022.08</div>
-          <div class="news-text">ECCV 2022 paper accepted with Prof. Si Liu and Dr. Sheng Jin.</div>
-        </div>
-        <div class="news-card">
-          <div class="news-date">2021.07</div>
-          <div class="news-text">ICCV 2021 paper accepted with Prof. Si Liu and Dr. Ning Xu.</div>
-        </div>
-        <div class="news-card">
-          <div class="news-date">2021.05</div>
-          <div class="news-text">TPAMI 2021 paper accepted with Prof. Si Liu.</div>
-        </div>
-        <div class="news-card">
-          <div class="news-date">2020.06</div>
-          <div class="news-text">1 paper with Prof. Si Liu is accepted by CVPR 2020 as <span class="legacy-red">Oral Presentation</span>!</div>
-        </div>
+        <p class="section-note">Representative works from 2019-2026.</p>
       </div>
-    </section>
 
-    <section id="pubs">
-      <div class="section-title">Selected Publications</div>
-      <p class="section-subtitle">Representative works from 2019-2025.</p>
       <div class="publication-list">
-        <div class="publication-card">
-          <div class="pub-thumb"><img src="images/IPRO.png" alt="IPRO"></div>
-          <div class="pub-meta">
+        <div class="publication-group">
+          <h3 class="publication-group-title">Image and Video Synthesis</h3>
+        </div>
+
+        <article class="publication">
+          <a class="publication-thumb" href="https://arxiv.org/pdf/2510.14255" aria-label="Open IPRO paper">
+            <img src="images/IPRO.png" alt="IPRO project preview">
+          </a>
+          <div class="publication-body">
+            <div class="publication-venue">
+              <span>CVPR 2026</span>
+            </div>
             <h3>Identity-Preserving Image-to-Video Generation via Reward-Guided Optimization</h3>
-            <p>Liao Shen*, <strong><u>Wentao Jiang*†</u></strong>, Yiran Zhu, Jiahe Li, Tiezheng Ge, Zhiguo Cao†, Bo Zheng</p>
-            <div class="pub-venue"><span class="venue-pill">ArXiv · 2025</span></div>
-            <div class="pub-links">
+            <p class="authors">Liao Shen*, <strong>Wentao Jiang*†</strong>, Yiran Zhu, Jiahe Li, Tiezheng Ge, Zhiguo Cao†, Bo Zheng</p>
+            <div class="publication-links">
               <a href="https://arxiv.org/pdf/2510.14255">Paper</a>
               <a href="https://alibaba.github.io/ROLL/docs/User%20Guides/Algorithms/Reward_FL">Code</a>
             </div>
           </div>
-        </div>
+        </article>
 
-        <div class="publication-card">
-          <div class="pub-thumb"><img src="images/augemantation_survey.png" alt="Survey"></div>
-          <div class="pub-meta">
-            <h3>Data Augmentation in Human-Centric Vision</h3>
-            <p><strong><u>Wentao Jiang</u></strong>, Yige Zhang, Shaozhong Zheng, Si Liu, Shuicheng Yan</p>
-            <div class="pub-venue"><span class="venue-pill">Vicinagearth · 2024</span></div>
-            <div class="pub-links">
-              <a href="https://arxiv.org/pdf/2403.08650">Paper</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="publication-card">
-          <div class="pub-thumb"><img src="images/iros2024.png" alt="IROS"></div>
-          <div class="pub-meta">
-            <h3>Realistic Rainy Weather Simulation for LiDARs in CARLA Simulator</h3>
-            <p>Donglin Yang, Xinyu Cai, Zhenfeng Liu, <strong><u>Wentao Jiang</u></strong>, Bo Zhang, Guohang Yan, Xing Gao, Si Liu, Botian Shi</p>
-            <div class="pub-venue"><span class="venue-pill">IROS · 2024</span></div>
-            <div class="pub-links">
-              <a href="https://arxiv.org/pdf/2312.12772">Paper</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="publication-card">
-          <div class="pub-thumb"><img src="images/mm23.png" alt="ACM MM"></div>
-          <div class="pub-meta">
-            <h3>DUSA: Decoupled Unsupervised Sim2Real Adaptation for V2X Collaborative Perception</h3>
-            <p>Xianghao Kong, <strong><u>Wentao Jiang</u></strong>, Jinrang Jia, Yifeng Shi, Runsheng Xu, <a href="http://colalab.org/people">Si Liu</a></p>
-            <div class="pub-venue"><span class="venue-pill">ACM MM · 2023</span></div>
-            <div class="pub-links">
-              <a href="https://arxiv.org/pdf/2310.08117">Paper</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="publication-card">
-          <div class="pub-thumb"><img src="images/rsuopt.png" alt="RSU"></div>
-          <div class="pub-meta">
-            <h3>Optimizing the Placement of Roadside LiDARs for Autonomous Driving</h3>
-            <p><strong><u>Wentao Jiang</u></strong>, Hao Xiang, Xinyu Cai, Runsheng Xu, Jiaqi Ma, Yikang Li, Gim Hee Lee, <a href="http://colalab.org/people">Si Liu</a></p>
-            <div class="pub-venue"><span class="venue-pill">ICCV · 2023</span></div>
-            <div class="pub-links">
-              <a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Jiang_Optimizing_the_Placement_of_Roadside_LiDARs_for_Autonomous_Driving_ICCV_2023_paper.pdf">Paper</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="publication-card">
-          <div class="pub-thumb"><img src="images/rsu.png" alt="ICRA"></div>
-          <div class="pub-meta">
-            <h3>Analyzing Infrastructure LiDAR Placement with Realistic LiDAR Simulation Library</h3>
-            <p>Xinyu Cai*, <strong><u>Wentao Jiang*</u></strong>, <a href="https://derrickxunu.github.io/">Runsheng Xu</a>, Wenquan Zhao, Jiaqi Ma, <a href="http://colalab.org/people">Si Liu</a>, <a href="https://liyikang.top/">Yikang Li</a></p>
-            <div class="pub-venue"><span class="venue-pill">ICRA · 2023</span></div>
-            <div class="pub-links">
-              <a href="https://arxiv.org/pdf/2211.15975">Paper</a>
-              <a href="https://github.com/PJLab-ADG/LiDARSimLib-and-Placement-Evaluation">Code/Lib</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="publication-card">
-          <div class="pub-thumb"><img src="images/posetrans.png" alt="PoseTrans"></div>
-          <div class="pub-meta">
+        <article class="publication">
+          <a class="publication-thumb" href="https://arxiv.org/pdf/2208.07755" aria-label="Open PoseTrans paper">
+            <img src="images/posetrans.png" alt="PoseTrans project preview">
+          </a>
+          <div class="publication-body">
+            <div class="publication-venue"><span>ECCV 2022</span></div>
             <h3>PoseTrans: Pose Transformation Augmentation for Human Pose Estimation</h3>
-            <p><strong><u>Wentao Jiang</u></strong>, <a href="https://jin-s13.github.io/">Sheng Jin</a>, Wentao Liu, Chen Qian, Ping Luo, <a href="http://colalab.org/people">Si Liu</a></p>
-            <div class="pub-venue"><span class="venue-pill">ECCV · 2022</span></div>
-            <div class="pub-links">
+            <p class="authors"><strong>Wentao Jiang</strong>, <a href="https://jin-s13.github.io/">Sheng Jin</a>, Wentao Liu, Chen Qian, Ping Luo, <a href="http://colalab.org/people">Si Liu</a></p>
+            <div class="publication-links">
               <a href="https://arxiv.org/pdf/2208.07755">Paper</a>
               <a href="https://github.com/wtjiang98/PoseTrans">Code</a>
             </div>
           </div>
-        </div>
+        </article>
 
-        <div class="publication-card">
-          <div class="pub-thumb"><img src="images/LGIE.png" alt="LGIE"></div>
-          <div class="pub-meta">
+        <article class="publication">
+          <a class="publication-thumb" href="https://openaccess.thecvf.com/content/ICCV2021/papers/Jiang_Language-Guided_Global_Image_Editing_via_Cross-Modal_Cyclic_Mechanism_ICCV_2021_paper.pdf" aria-label="Open LGIE paper">
+            <img src="images/LGIE.png" alt="LGIE project preview">
+          </a>
+          <div class="publication-body">
+            <div class="publication-venue"><span>ICCV 2021</span></div>
             <h3>Language-Guided Global Image Editing via Cross-Modal Cyclic Mechanism</h3>
-            <p><strong><u>Wentao Jiang</u></strong>, Ning Xu, Jiayun Wang, Chen Gao, Jing Shi, Zhe Lin, <a href="http://colalab.org/people">Si Liu</a></p>
-            <div class="pub-venue"><span class="venue-pill">ICCV · 2021</span></div>
-            <div class="pub-links">
+            <p class="authors"><strong>Wentao Jiang</strong>, Ning Xu, Jiayun Wang, Chen Gao, Jing Shi, Zhe Lin, <a href="http://colalab.org/people">Si Liu</a></p>
+            <div class="publication-links">
               <a href="https://openaccess.thecvf.com/content/ICCV2021/papers/Jiang_Language-Guided_Global_Image_Editing_via_Cross-Modal_Cyclic_Mechanism_ICCV_2021_paper.pdf">Paper</a>
             </div>
           </div>
-        </div>
+        </article>
 
-        <div class="publication-card">
-          <div class="pub-thumb"><img src="images/psgan++.png" alt="PSGAN++"></div>
-          <div class="pub-meta">
+        <article class="publication">
+          <a class="publication-thumb" href="https://arxiv.org/abs/2105.12324" aria-label="Open PSGAN++ paper">
+            <img src="images/psgan++.png" alt="PSGAN++ project preview">
+          </a>
+          <div class="publication-body">
+            <div class="publication-venue"><span>TPAMI 2021</span></div>
             <h3>PSGAN++: Robust Detail-Preserving Makeup Transfer and Removal</h3>
-            <p><a href="http://colalab.org/people">Si Liu</a>, <strong><u>Wentao Jiang</u></strong>, Chen Gao, <a href="http://people.ucas.ac.cn/~0019861?language=en">Ran He</a>, <a href="https://sites.google.com/site/jshfeng/">Jiashi Feng</a>, Bo Li, <a href="https://www.ece.nus.edu.sg/stfpage/eleyans/">Shuicheng Yan</a></p>
-            <div class="pub-venue"><span class="venue-pill">TPAMI · 2021</span></div>
-            <div class="pub-links">
+            <p class="authors"><a href="http://colalab.org/people">Si Liu</a>, <strong>Wentao Jiang</strong>, Chen Gao, <a href="http://people.ucas.ac.cn/~0019861?language=en">Ran He</a>, <a href="https://sites.google.com/site/jshfeng/">Jiashi Feng</a>, Bo Li, <a href="https://www.ece.nus.edu.sg/stfpage/eleyans/">Shuicheng Yan</a></p>
+            <div class="publication-links">
               <a href="https://arxiv.org/abs/2105.12324">Paper</a>
             </div>
           </div>
-        </div>
+        </article>
 
-        <div class="publication-card">
-          <div class="pub-thumb"><img src="images/psgan.jpg" alt="PSGAN"></div>
-          <div class="pub-meta">
-            <h3>PSGAN: Pose & Expression Robust Spatial-Aware GAN for Customizable Makeup Transfer</h3>
-            <p><strong><u>Wentao Jiang</u></strong>, <a href="http://colalab.org/people">Si Liu</a>, Chen Gao, Jie Cao, <a href="http://people.ucas.ac.cn/~0019861?language=en">Ran He</a>, <a href="https://sites.google.com/site/jshfeng/">Jiashi Feng</a>, <a href="https://www.ece.nus.edu.sg/stfpage/eleyans/">Shuicheng Yan</a></p>
-            <div class="pub-venue"><span class="venue-pill">CVPR · 2020</span></div>
-            <p><span class="legacy-red">(Oral Presentation, 5% acceptance rate)</span></p>
-            <div class="pub-links">
+        <article class="publication">
+          <a class="publication-thumb" href="https://arxiv.org/abs/1909.06956" aria-label="Open PSGAN paper">
+            <img src="images/psgan.jpg" alt="PSGAN project preview">
+          </a>
+          <div class="publication-body">
+            <div class="publication-venue">
+              <span>CVPR 2020</span>
+              <span>Oral</span>
+            </div>
+            <h3>PSGAN: Pose &amp; Expression Robust Spatial-Aware GAN for Customizable Makeup Transfer</h3>
+            <p class="authors"><strong>Wentao Jiang</strong>, <a href="http://colalab.org/people">Si Liu</a>, Chen Gao, Jie Cao, <a href="http://people.ucas.ac.cn/~0019861?language=en">Ran He</a>, <a href="https://sites.google.com/site/jshfeng/">Jiashi Feng</a>, <a href="https://www.ece.nus.edu.sg/stfpage/eleyans/">Shuicheng Yan</a></p>
+            <div class="publication-links">
               <a href="https://arxiv.org/abs/1909.06956">Paper</a>
               <a href="https://github.com/wtjiang98/PSGAN">Code/Dataset</a>
             </div>
           </div>
-        </div>
+        </article>
 
-        <div class="publication-card">
-          <div class="pub-thumb"><img src="images/ugan.jpg" alt="UGAN"></div>
-          <div class="pub-meta">
+        <article class="publication">
+          <a class="publication-thumb" href="https://arxiv.org/abs/1907.11418" aria-label="Open UGAN paper">
+            <img src="images/ugan.jpg" alt="UGAN project preview">
+          </a>
+          <div class="publication-body">
+            <div class="publication-venue"><span>arXiv 2019</span></div>
             <h3>UGAN: Untraceable GAN for Multi-Domain Face Translation</h3>
-            <p>Defa Zhu, <a href="http://colalab.org/people">Si Liu</a>, <strong><u>Wentao Jiang</u></strong>, Chen Gao, Tianyi Wu, Qaingchang Wang, <a href="http://pages.cs.wisc.edu/~gdguo/">Guodong Guo</a></p>
-            <div class="pub-venue"><span class="venue-pill">arXiv · 2019</span></div>
-            <div class="pub-links">
+            <p class="authors">Defa Zhu, <a href="http://colalab.org/people">Si Liu</a>, <strong>Wentao Jiang</strong>, Chen Gao, Tianyi Wu, Qaingchang Wang, <a href="http://pages.cs.wisc.edu/~gdguo/">Guodong Guo</a></p>
+            <div class="publication-links">
               <a href="https://arxiv.org/abs/1907.11418">Paper</a>
             </div>
           </div>
+        </article>
+
+        <div class="publication-group">
+          <h3 class="publication-group-title">Others</h3>
         </div>
+
+        <article class="publication">
+          <a class="publication-thumb" href="https://arxiv.org/pdf/2403.08650" aria-label="Open Data Augmentation in Human-Centric Vision paper">
+            <img src="images/augemantation_survey.png" alt="Data augmentation survey preview">
+          </a>
+          <div class="publication-body">
+            <div class="publication-venue"><span>Vicinagearth 2024</span></div>
+            <h3>Data Augmentation in Human-Centric Vision</h3>
+            <p class="authors"><strong>Wentao Jiang</strong>, Yige Zhang, Shaozhong Zheng, Si Liu, Shuicheng Yan</p>
+            <div class="publication-links">
+              <a href="https://arxiv.org/pdf/2403.08650">Paper</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="publication">
+          <a class="publication-thumb" href="https://arxiv.org/pdf/2312.12772" aria-label="Open Realistic Rainy Weather Simulation paper">
+            <img src="images/iros2024.png" alt="IROS 2024 project preview">
+          </a>
+          <div class="publication-body">
+            <div class="publication-venue"><span>IROS 2024</span></div>
+            <h3>Realistic Rainy Weather Simulation for LiDARs in CARLA Simulator</h3>
+            <p class="authors">Donglin Yang, Xinyu Cai, Zhenfeng Liu, <strong>Wentao Jiang</strong>, Bo Zhang, Guohang Yan, Xing Gao, Si Liu, Botian Shi</p>
+            <div class="publication-links">
+              <a href="https://arxiv.org/pdf/2312.12772">Paper</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="publication">
+          <a class="publication-thumb" href="https://arxiv.org/pdf/2310.08117" aria-label="Open DUSA paper">
+            <img src="images/mm23.png" alt="DUSA project preview">
+          </a>
+          <div class="publication-body">
+            <div class="publication-venue"><span>ACM MM 2023</span></div>
+            <h3>DUSA: Decoupled Unsupervised Sim2Real Adaptation for V2X Collaborative Perception</h3>
+            <p class="authors">Xianghao Kong, <strong>Wentao Jiang</strong>, Jinrang Jia, Yifeng Shi, Runsheng Xu, <a href="http://colalab.org/people">Si Liu</a></p>
+            <div class="publication-links">
+              <a href="https://arxiv.org/pdf/2310.08117">Paper</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="publication">
+          <a class="publication-thumb" href="https://openaccess.thecvf.com/content/ICCV2023/papers/Jiang_Optimizing_the_Placement_of_Roadside_LiDARs_for_Autonomous_Driving_ICCV_2023_paper.pdf" aria-label="Open RSU placement paper">
+            <img src="images/rsuopt.png" alt="RSU placement project preview">
+          </a>
+          <div class="publication-body">
+            <div class="publication-venue"><span>ICCV 2023</span></div>
+            <h3>Optimizing the Placement of Roadside LiDARs for Autonomous Driving</h3>
+            <p class="authors"><strong>Wentao Jiang</strong>, Hao Xiang, Xinyu Cai, Runsheng Xu, Jiaqi Ma, Yikang Li, Gim Hee Lee, <a href="http://colalab.org/people">Si Liu</a></p>
+            <div class="publication-links">
+              <a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Jiang_Optimizing_the_Placement_of_Roadside_LiDARs_for_Autonomous_Driving_ICCV_2023_paper.pdf">Paper</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="publication">
+          <a class="publication-thumb" href="https://arxiv.org/pdf/2211.15975" aria-label="Open Infrastructure LiDAR Placement paper">
+            <img src="images/rsu.png" alt="Infrastructure LiDAR project preview">
+          </a>
+          <div class="publication-body">
+            <div class="publication-venue"><span>ICRA 2023</span></div>
+            <h3>Analyzing Infrastructure LiDAR Placement with Realistic LiDAR Simulation Library</h3>
+            <p class="authors">Xinyu Cai*, <strong>Wentao Jiang*</strong>, <a href="https://derrickxunu.github.io/">Runsheng Xu</a>, Wenquan Zhao, Jiaqi Ma, <a href="http://colalab.org/people">Si Liu</a>, <a href="https://liyikang.top/">Yikang Li</a></p>
+            <div class="publication-links">
+              <a href="https://arxiv.org/pdf/2211.15975">Paper</a>
+              <a href="https://github.com/PJLab-ADG/LiDARSimLib-and-Placement-Evaluation">Code/Lib</a>
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <section id="honors">
-      <div class="section-title">Honors & Awards</div>
-      <p class="section-subtitle">Recognitions in academics & competitions.</p>
+    <section id="honors" class="content-section">
+      <div class="section-heading">
+        <p class="section-kicker">Honors</p>
+        <h2>Awards and recognition.</h2>
+      </div>
       <ul class="honors-list">
-        <li>National Scholarship (Top 1%), 2021</li>
-        <li>Outstanding Freshman Scholarship for PhD Students (Top 5%), Beihang University, 2020</li>
-        <!-- <li>First Class Scholarship, Beihang University (Top 10%), 2019</li> -->
-        <li>Outstanding Freshman Scholarship for Master Students (Top 5%), Beihang University, 2019</li>
-        <!-- <li>Outstanding Graduate, Harbin Engineering University (Top 2%), 2019</li> -->
-        <li>National Scholarship (Top 1%), 2017</li>
-        <li>ACM-ICPC Asia Regional Contest · Silver Medal, 2017</li>
-        <li>China Collegiate Programming Contest (CCPC) · 3× Silver Medal, 2016-2017</li>
+        <li><span>2021</span> National Scholarship, Top 1%</li>
+        <li><span>2020</span> Outstanding Freshman Scholarship for PhD Students, Beihang University, Top 5%</li>
+        <li><span>2019</span> Outstanding Freshman Scholarship for Master Students, Beihang University, Top 5%</li>
+        <li><span>2017</span> National Scholarship, Top 1%</li>
+        <li><span>2017</span> ACM-ICPC Asia Regional Contest, Silver Medal</li>
+        <li><span>2016-2017</span> China Collegiate Programming Contest, 3x Silver Medal</li>
       </ul>
     </section>
+  </main>
 
-    <div class="footer">© Wentao Jiang · Built with inspiration from clean academic portfolios.</div>
-              </div>
+  <footer class="site-footer">
+    <p>© Wentao Jiang. Last updated 2026.</p>
+  </footer>
 </body>
 </html>
